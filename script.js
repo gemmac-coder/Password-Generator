@@ -139,9 +139,10 @@ function generatePassword() {
     optionsArray.push(...specialCharactersArray);
   }
   //Using math random math floor to generate a randomPasswordArray, based on the password length:
-  let randomCharacter =
-    optionsArray[Math.floor(Math.random() * optionsArray.length)];
-  console.log(result);
+  for (var i = 0; i < passwordLength; i++) {
+    let randomCharacter =
+      optionsArray[Math.floor(Math.random() * optionsArray.length)];
+  }
 }
 
 // Write password to the #password input
