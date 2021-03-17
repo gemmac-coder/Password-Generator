@@ -84,14 +84,20 @@ const specialCharactersArray = [
   ".",
 ];
 
+let isLowerCaseCharacters;
+let isUpperCaseCharacters;
+let isNumericCharacters;
+let isSpecialCharacters;
+let optionsArray = [];
+
 // Declare a new function on line 3
 function generatePassword() {
   // Asking the user their desired password length
-  var passwordLength = prompt(
+  let passwordLength = prompt(
     "How many characters would you like in your password? Passwords must be at least 8 characters, but no more than 128 characters."
   );
   // Converts user-defined password length string into a number
-  PasswordLength = Number.parseInt(passwordLength);
+  passwordLength = Number.parseInt(passwordLength);
 
   //Checking to see if password length is valid
 
@@ -106,39 +112,36 @@ function generatePassword() {
   // If the user's password length is between 8 and 128 characters, this requested password length is logged to the console.
   if (passwordLength >= 8 && passwordLength <= 128) {
     //Asking the user about the character types they would like to include in their password.
-    const lowerCaseCharacters = confirm(
+    let isLowerCaseCharacters = confirm(
       "Would you like to include lower case characters in your password?"
     );
-    const upperCaseCharacters = confirm(
+    let isUpperCaseCharacters = confirm(
       "Would you like to include upper case characters in your password?"
     );
-    const numericCharacters = confirm(
+    let isNumericCharacters = confirm(
       "Would you like to include numeric characters in your password?"
     );
-    const specialCharacters = confirm(
+    let isSpecialCharacters = confirm(
       "Would you like to include special characters in your password?"
     );
-    // Creating if statements from the requested character types to generate password.
-    if (lowerCaseCharacters) {
-      optionsArray.push(lowerCaseArray);
-    }
-    if (upperCaseCharacters) {
-      optionsArray.push(upperCaseArray);
-    }
-    if (numericCharacters) {
-      optionsArray.push(numbersArray);
-    }
-    if (specialCharacters) {
-      optionsArray.push(specialCharactersArray);
-    }
-    //Creating an options array, based on the character types selected by the user.
-    var optionsArray = [];
   }
-  //Using math random math floor to generate a randomPasswordArray based on the password length:
-  var randomPasswordArray =
-    optionsArray[Math.floor(Math.random() * passwordLength)];
-  var stringPassword = randomPasswordArray.toString();
-  console.log(stringPassword);
+  // Creating if statements from the requested character types to generate password.
+  if (isLowerCaseCharacters) {
+    optionsArray.push(...lowerCaseArray);
+  }
+  if (isUpperCaseCharacters) {
+    optionsArray.push(...upperCaseArray);
+  }
+  if (isNumericCharacters) {
+    optionsArray.push(...numbersArray);
+  }
+  if (isSpecialCharacters) {
+    optionsArray.push(...specialCharactersArray);
+  }
+  //Using math random math floor to generate a randomPasswordArray, based on the password length:
+  let randomCharacter =
+    optionsArray[Math.floor(Math.random() * optionsArray.length)];
+  console.log(result);
 }
 
 // Write password to the #password input
