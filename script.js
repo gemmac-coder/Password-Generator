@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lowerCaseArray = [
+const lowerCaseArray = [
   "a",
   "b",
   "c",
@@ -29,7 +29,7 @@ var lowerCaseArray = [
   "y",
   "z",
 ];
-var upperCaseArray = [
+const upperCaseArray = [
   "A",
   "B",
   "C",
@@ -57,8 +57,8 @@ var upperCaseArray = [
   "Y",
   "Z",
 ];
-var numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-var specialCharactersArray = [
+const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const specialCharactersArray = [
   "@",
   "%",
   "+",
@@ -86,7 +86,6 @@ var specialCharactersArray = [
 
 // Declare a new function on line 3
 function generatePassword() {
-  debugger;
   // Asking the user their desired password length
   var passwordLength = prompt(
     "How many characters would you like in your password? Passwords must be at least 8 characters, but no more than 128 characters."
@@ -106,7 +105,6 @@ function generatePassword() {
   }
   // If the user's password length is between 8 and 128 characters, this requested password length is logged to the console.
   if (passwordLength >= 8 && passwordLength <= 128) {
-    console.log(userPasswordLength);
     //Asking the user about the character types they would like to include in their password.
     const lowerCaseCharacters = confirm(
       "Would you like to include lower case characters in your password?"
@@ -120,8 +118,6 @@ function generatePassword() {
     const specialCharacters = confirm(
       "Would you like to include special characters in your password?"
     );
-    //Creating an options array, based on the character types selected by the user.
-    const optionsArray = [];
     // Creating if statements from the requested character types to generate password.
     if (lowerCaseCharacters) {
       optionsArray.push(lowerCaseArray);
@@ -135,7 +131,14 @@ function generatePassword() {
     if (specialCharacters) {
       optionsArray.push(specialCharactersArray);
     }
+    //Creating an options array, based on the character types selected by the user.
+    var optionsArray = [];
   }
+  //Using math random math floor to generate a randomPasswordArray based on the password length:
+  var randomPasswordArray =
+    optionsArray[Math.floor(Math.random() * passwordLength)];
+  var stringPassword = randomPasswordArray.toString();
+  console.log(stringPassword);
 }
 
 // Write password to the #password input
