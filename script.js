@@ -57,7 +57,7 @@ const upperCaseArray = [
   "Y",
   "Z",
 ];
-const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const specialCharactersArray = [
   "@",
   "%",
@@ -143,6 +143,7 @@ function generatePassword() {
     let randomCharacter =
       optionsArray[Math.floor(Math.random() * optionsArray.length)];
   }
+  return result;
 }
 
 // Write password to the #password input
