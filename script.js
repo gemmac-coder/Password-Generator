@@ -138,12 +138,11 @@ function generatePassword() {
   if (isSpecialCharacters) {
     optionsArray.push(...specialCharactersArray);
   }
-  //Using math random math floor to generate a randomPasswordArray, based on the password length:
+  //Using math random math floor to generate a random password, based on the password length and user-defined character choice:
   for (var i = 0; i < passwordLength; i++) {
     let randomCharacter =
       optionsArray[Math.floor(Math.random() * optionsArray.length)];
   }
-  return result;
 }
 
 // Write password to the #password input
