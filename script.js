@@ -141,6 +141,14 @@ function generatePassword() {
   if (isSpecialCharacters) {
     optionsArray.push(...specialCharactersArray);
   }
+  if (
+    !isLowerCaseCharacters &&
+    !isUpperCaseCharacters &&
+    !isNumericCharacters &&
+    !isSpecialCharacters
+  ) {
+    alert("You must select at least one character type.");
+  }
 
   console.log(optionsArray);
   //Using math random math floor to generate a random password, based on the password length and user-defined character choice:
