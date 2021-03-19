@@ -144,7 +144,7 @@ function generatePassword() {
   if (isSpecialCharacters) {
     optionsArray.push(...specialCharactersArray);
   }
-  //If no character types are selected an alert dialogue box will show and say that the user must select at least one character type.
+  //If no character types are selected an alert dialogue box will show and say that the user must select at least 1 character type.
   if (
     !isLowerCaseCharacters &&
     !isUpperCaseCharacters &&
