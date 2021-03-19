@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+//Lower case character array
 const lowerCaseArray = [
   "a",
   "b",
@@ -29,6 +29,7 @@ const lowerCaseArray = [
   "y",
   "z",
 ];
+//Upper case character array
 const upperCaseArray = [
   "A",
   "B",
@@ -57,7 +58,9 @@ const upperCaseArray = [
   "Y",
   "Z",
 ];
+//Numeric character array
 const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//Special character array
 const specialCharactersArray = [
   "@",
   "%",
@@ -83,7 +86,7 @@ const specialCharactersArray = [
   "_",
   ".",
 ];
-
+//Declaring generate password function and variables
 function generatePassword() {
   let isLowerCaseCharacters;
   let isUpperCaseCharacters;
@@ -93,16 +96,12 @@ function generatePassword() {
   let password = [];
   const result = [];
 
-  // Declare a new function on line 3
-
   // Asking the user their desired password length
   let passwordLength = prompt(
     "How many characters would you like in your password? Passwords must be at least 8 characters, but no more than 128 characters."
   );
   // Converts user-defined password length string into a number
   passwordLength = Number.parseInt(passwordLength);
-
-  //Checking to see if password length is valid
 
   // If the user password length is less than 8 characters, an alert shows and an empty string is returned.
   if (passwordLength < 8) {
@@ -112,9 +111,13 @@ function generatePassword() {
   if (passwordLength > 128) {
     alert("Your password can have no more than 128 characters");
   }
+  // If the user presses cancel on the password length prompt dialogue box, then the following alert is displayed.
+  if (!passwordLength) {
+    alert("You must specify a password length");
+  }
   // If the user's password length is between 8 and 128 characters, this requested password length is logged to the console.
   if (passwordLength >= 8 && passwordLength <= 128) {
-    //Asking the user about the character types they would like to include in their password.
+    //Using confirm dialogue boxes to ask  user about the character types they would like to include in their password.
     isLowerCaseCharacters = confirm(
       "Would you like to include lower case characters in your password?"
     );
@@ -128,7 +131,7 @@ function generatePassword() {
       "Would you like to include special characters in your password?"
     );
   }
-  // Creating if statements from the requested character types to generate password.
+  // If the character type is selected then items from that array will be pushed into an options array.
   if (isLowerCaseCharacters) {
     optionsArray.push(...lowerCaseArray);
   }
@@ -141,13 +144,14 @@ function generatePassword() {
   if (isSpecialCharacters) {
     optionsArray.push(...specialCharactersArray);
   }
+  //If no character types are selected an alert dialogue box will show and say that the user must select at least one character type.
   if (
     !isLowerCaseCharacters &&
     !isUpperCaseCharacters &&
     !isNumericCharacters &&
     !isSpecialCharacters
   ) {
-    alert("You must select at least one character type.");
+    alert("You must select at least one character type");
   }
 
   console.log(optionsArray);
@@ -155,18 +159,18 @@ function generatePassword() {
   function randomPasswordGenerator() {
     const randomIndex = Math.floor(Math.random() * optionsArray.length);
     const randomChoice = optionsArray[randomIndex];
-    //const randomCharacter = Math.floor(Math.random() * randomChoice.length);
+
     return randomChoice;
   }
-
+  //Repeating the above process, until the number of random results equals the requested password length.
   for (let i = 0; i < passwordLength; i++) {
     let randomResult = randomPasswordGenerator();
     result.push(randomResult);
   }
   console.log(result);
-
+  //These random result characters are then joined.
   password = result.join("");
-
+  //The password is returned.
   return password;
 }
 
