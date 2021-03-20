@@ -25,7 +25,17 @@ The second criterion was that the password could contain lower case characters, 
 
 ## Screenshots
 
-![Password Length Prompt](screenshots/Password-Length-Prompt.png)
+![Password Length Prompt Screenshot](screenshots/Password-Length-Prompt.png)
+
+![Lower Case Character Confirm Screenshot](screenshots/Lower-Case-Characters-Confirm.png)
+
+![Upper Case Character Confirm Screenshot](screenshots/Upper-Case-Character-Confirm.png)
+
+![Numeric Character Confirm Screenshot](screenshots/Numeric-Character-Confirm.png)
+
+![Special Character Confirm Screenshot](screenshots/Special-Character-Confirm.png)
+
+![Generated Password Screenshot](screenshots/Generated-Password.png)
 
 Link to Deployed Application:
 
