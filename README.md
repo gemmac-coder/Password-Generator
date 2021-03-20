@@ -25,7 +25,7 @@ The second criterion was that the password could contain lower case characters, 
 
 ## Screenshots
 
-![Password Length Prompt Screenshot](screenshots/Screenshot 2021-03-20 at 14.34.01.png)
+![Password Length Prompt](screenshots/Password-Length-Prompt.png)
 
 Link to Deployed Application:
 
