@@ -130,48 +130,49 @@ function generatePassword() {
     isSpecialCharacters = confirm(
       "Would you like to include special characters in your password?"
     );
-  }
-  // If the character type is selected then items from that array will be pushed into an options array.
-  if (isLowerCaseCharacters) {
-    optionsArray.push(...lowerCaseArray);
-  }
-  if (isUpperCaseCharacters) {
-    optionsArray.push(...upperCaseArray);
-  }
-  if (isNumericCharacters) {
-    optionsArray.push(...numbersArray);
-  }
-  if (isSpecialCharacters) {
-    optionsArray.push(...specialCharactersArray);
-  }
-  //If no character types are selected an alert dialogue box will show and say that the user must select at least 1 character type.
-  if (
-    !isLowerCaseCharacters &&
-    !isUpperCaseCharacters &&
-    !isNumericCharacters &&
-    !isSpecialCharacters
-  ) {
-    alert("You must select at least one character type");
-  }
 
-  console.log(optionsArray);
-  //Using math random math floor to generate a random password, based on the password length and user-defined character choice:
-  function randomPasswordGenerator() {
-    const randomIndex = Math.floor(Math.random() * optionsArray.length);
-    const randomChoice = optionsArray[randomIndex];
+    // If the character type is selected then items from that array will be pushed into an options array.
+    if (isLowerCaseCharacters) {
+      optionsArray.push(...lowerCaseArray);
+    }
+    if (isUpperCaseCharacters) {
+      optionsArray.push(...upperCaseArray);
+    }
+    if (isNumericCharacters) {
+      optionsArray.push(...numbersArray);
+    }
+    if (isSpecialCharacters) {
+      optionsArray.push(...specialCharactersArray);
+    }
+    //If no character types are selected an alert dialogue box will show and say that the user must select at least 1 character type.
+    if (
+      !isLowerCaseCharacters &&
+      !isUpperCaseCharacters &&
+      !isNumericCharacters &&
+      !isSpecialCharacters
+    ) {
+      alert("You must select at least one character type");
+    }
 
-    return randomChoice;
+    console.log(optionsArray);
+    //Using math random math floor to generate a random password, based on the password length and user-defined character choice:
+    function randomPasswordGenerator() {
+      const randomIndex = Math.floor(Math.random() * optionsArray.length);
+      const randomChoice = optionsArray[randomIndex];
+
+      return randomChoice;
+    }
+    //Repeating the above process, until the number of random results equals the requested password length.
+    for (let i = 0; i < passwordLength; i++) {
+      let randomResult = randomPasswordGenerator();
+      result.push(randomResult);
+    }
+    console.log(result);
+    //These random result characters are then joined.
+    password = result.join("");
+    //The password is returned.
+    return password;
   }
-  //Repeating the above process, until the number of random results equals the requested password length.
-  for (let i = 0; i < passwordLength; i++) {
-    let randomResult = randomPasswordGenerator();
-    result.push(randomResult);
-  }
-  console.log(result);
-  //These random result characters are then joined.
-  password = result.join("");
-  //The password is returned.
-  return password;
 }
 
 // Write password to the #password input
