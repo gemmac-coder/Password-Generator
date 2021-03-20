@@ -117,7 +117,7 @@ function generatePassword() {
   }
   // If the user's password length is between 8 and 128 characters, this requested password length is logged to the console.
   if (passwordLength >= 8 && passwordLength <= 128) {
-    //Using confirm dialogue boxes to ask  user about the character types they would like to include in their password.
+    //Using confirm dialogue boxes to ask the user about the character types they would like to include in their password.
     isLowerCaseCharacters = confirm(
       "Would you like to include lower case characters in your password?"
     );
@@ -131,7 +131,7 @@ function generatePassword() {
       "Would you like to include special characters in your password?"
     );
 
-    // If the character type is selected then items from that array will be pushed into an options array.
+    // If a particular character type is selected then items from that array will be pushed into an options array.
     if (isLowerCaseCharacters) {
       optionsArray.push(...lowerCaseArray);
     }
