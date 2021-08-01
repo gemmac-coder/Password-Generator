@@ -39,4 +39,4 @@ The second criterion was that the password could contain lower case characters, 
 
 Link to Deployed Application:
 
-https://gemmac-coder.github.io/Password_Generator/
+https://gemmac-coder.github.io/Password-Generator/
